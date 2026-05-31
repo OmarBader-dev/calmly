@@ -1,8 +1,9 @@
 import Brand from "./Brand.jsx";
 import Icon from "./Icon.jsx";
+import ThemeSwitcher from "./ThemeSwitcher.jsx";
 import { NAV } from "./nav.js";
 
-export default function Sidebar({ route, setRoute, gpa }) {
+export default function Sidebar({ route, setRoute, gpa, theme, serif, setTheme, setSerif }) {
   return (
     <aside className="sidebar">
       <Brand />
@@ -25,6 +26,15 @@ export default function Sidebar({ route, setRoute, gpa }) {
         </button>
       </nav>
       <div className="sidebar-foot">
+        <div style={{ marginBottom: 14 }}>
+          <div className="appearance-label">Appearance</div>
+          <ThemeSwitcher
+            theme={theme}
+            serif={serif}
+            setTheme={setTheme}
+            setSerif={setSerif}
+          />
+        </div>
         <div className="gpa-chip">
           <span className="v">{gpa.credits ? gpa.gpa.toFixed(2) : "—"}</span>
           <span className="l">

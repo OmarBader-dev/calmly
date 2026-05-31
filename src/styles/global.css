@@ -307,6 +307,29 @@ input, select, textarea { font-family: inherit; }
 }
 .segment button.active { background: var(--surface); color: var(--ink); box-shadow: var(--shadow-xs); }
 
+/* theme switcher */
+.appearance-label {
+  font-size: 11px; letter-spacing: 0.09em; text-transform: uppercase;
+  color: var(--ink-faint); font-weight: 600; margin-bottom: 9px;
+}
+.theme-switch { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.theme-swatches { display: flex; gap: 7px; }
+.theme-swatch {
+  width: 26px; height: 26px; border-radius: 50%; padding: 0;
+  border: 1px solid var(--line); display: grid; place-items: center;
+  transition: box-shadow .15s, transform .12s var(--ease);
+}
+.theme-swatch span { width: 10px; height: 10px; border-radius: 50%; display: block; }
+.theme-swatch:hover { transform: translateY(-1px); }
+.theme-swatch.active { box-shadow: 0 0 0 2px var(--accent); border-color: transparent; }
+.serif-toggle {
+  height: 26px; min-width: 36px; padding: 0 10px; border-radius: var(--r-full);
+  border: 1px solid var(--line); background: var(--surface); color: var(--ink-soft);
+  font-family: var(--font-serif); font-size: 13px; font-weight: 600;
+  transition: background .15s, color .15s, border-color .15s;
+}
+.serif-toggle.active { background: var(--accent-soft); color: var(--accent-ink); border-color: transparent; }
+
 /* mobile bottom nav (hidden on desktop) */
 .tabbar { display: none; }
 
@@ -340,6 +363,14 @@ input, select, textarea { font-family: inherit; }
   }
 }
 @media (min-width: 861px) { .mobile-top { display: none; } }
+
+/* On phones, collapse the page content grids to a single column. The pages set
+   grid-template-columns via inline styles, so override with !important here.
+   The 7-column calendar day grid is a plain div (not .grid) so it is untouched. */
+@media (max-width: 720px) {
+  .main-inner .grid { grid-template-columns: 1fr !important; }
+  .page-title { font-size: 27px; }
+}
 
 /* grid helpers */
 .grid { display: grid; gap: 18px; }

@@ -4,6 +4,7 @@ import TabBar from "./components/TabBar.jsx";
 import MobileTop from "./components/MobileTop.jsx";
 import { PAGE_IDS } from "./components/nav.js";
 import { useStore } from "./data/store.js";
+import { useTheme } from "./data/theme.js";
 import { computeGPA } from "./data/gpa.js";
 import Home from "./pages/Home.jsx";
 import Courses from "./pages/Courses.jsx";
@@ -14,6 +15,7 @@ import About from "./pages/About.jsx";
 
 export default function App() {
   const store = useStore();
+  const { theme, serif, setTheme, setSerif } = useTheme();
   const [route, setRoute] = useState(
     () => window.location.hash.slice(1) || "home"
   );
@@ -47,7 +49,15 @@ export default function App() {
       case "swap":
         return <Swap store={store} />;
       case "about":
-        return <About store={store} />;
+        return (
+          <About
+            store={store}
+            theme={theme}
+            serif={serif}
+            setTheme={setTheme}
+            setSerif={setSerif}
+          />
+        );
       default:
         return <Home store={store} setRoute={go} />;
     }
@@ -55,7 +65,15 @@ export default function App() {
 
   return (
     <div className="app">
-      <Sidebar route={active} setRoute={go} gpa={gpa} />
+      <Sidebar
+        route={active}
+        setRoute={go}
+        gpa={gpa}
+        theme={theme}
+        serif={serif}
+        setTheme={setTheme}
+        setSerif={setSerif}
+      />
       <main className="main">
         <MobileTop gpa={gpa} />
         <div className="main-inner">

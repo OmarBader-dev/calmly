@@ -5,6 +5,7 @@ import { useState } from "react";
 import Icon from "../components/Icon.jsx";
 import PageHead from "../components/PageHead.jsx";
 import Modal from "../components/Modal.jsx";
+import ThemeSwitcher from "../components/ThemeSwitcher.jsx";
 import { GRADES } from "../data/gpa.js";
 
 function HelpItem({ icon, title, children }) {
@@ -41,7 +42,7 @@ function HelpItem({ icon, title, children }) {
   );
 }
 
-export default function About({ store }) {
+export default function About({ store, theme, serif, setTheme, setSerif }) {
   const [confirm, setConfirm] = useState(null);
 
   return (
@@ -100,6 +101,26 @@ export default function About({ store }) {
             <p style={{ fontSize: 12.5, color: "var(--ink-faint)", marginTop: 14, lineHeight: 1.5 }}>
               GPA = sum of (grade points × credits) ÷ sum of (credits), counting only graded courses.
             </p>
+          </div>
+
+          <div className="card card-pad">
+            <h3 style={{ fontSize: 18, marginBottom: 6 }}>Appearance</h3>
+            <p
+              style={{
+                fontSize: 13.5,
+                color: "var(--ink-soft)",
+                lineHeight: 1.5,
+                marginBottom: 16,
+              }}
+            >
+              Pick a mood and heading style. Your choice is saved to this browser.
+            </p>
+            <ThemeSwitcher
+              theme={theme}
+              serif={serif}
+              setTheme={setTheme}
+              setSerif={setSerif}
+            />
           </div>
 
           <div className="card card-pad">

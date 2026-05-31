@@ -10,6 +10,15 @@
       href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=Hanken+Grotesk:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Apply the saved theme before React mounts to avoid a flash of the default theme. -->
+    <script>
+      try {
+        var p = JSON.parse(localStorage.getItem("quietly.theme") || "{}");
+        if (p.theme) document.documentElement.setAttribute("data-theme", p.theme);
+        if (p.serif === false) document.documentElement.setAttribute("data-serif", "off");
+      } catch (e) {}
+    </script>
   </head>
   <body>
     <div id="root"></div>
