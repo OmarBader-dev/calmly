@@ -1,13 +1,32 @@
 import { useEffect, useState } from "react";
+import Sidebar from "./components/Sidebar.jsx";
+import TabBar from "./components/TabBar.jsx";
+import MobileTop from "./components/MobileTop.jsx";
+import PageHead from "./components/PageHead.jsx";
+import Empty from "./components/Empty.jsx";
+import { PAGE_IDS } from "./components/nav.js";
 
-const PAGES = ["home", "courses", "calculator", "calendar", "swap", "about"];
+const PAGE_META = {
+  home: { kicker: "Dashboard", title: "Home" },
+  courses: { kicker: "Your term", title: "Courses" },
+  calculator: { kicker: "The numbers", title: "GPA Calculator" },
+  calendar: { kicker: "Stay ahead", title: "Calendar" },
+  swap: { kicker: "Campus exchange", title: "Skill Swap" },
+  about: { kicker: "The basics", title: "About & Help" },
+};
 
-function Placeholder({ name }) {
+function PlaceholderPage({ kicker, title }) {
   return (
-    <div style={{ padding: 48 }}>
-      <h1 style={{ fontFamily: "Spectral, Georgia, serif", fontSize: 36, margin: 0 }}>
-        {name}
-      </h1>
+    <div className="fade-in">
+      <PageHead
+        kicker={kicker}
+        title={title}
+        desc="This page is being built"
+      />
+      <Empty
+        icon="leaf"
+        title="in the making"
+      />
     </div>
   );
 }
@@ -18,7 +37,8 @@ export default function App() {
   );
 
   useEffect(() => {
-    const onHash = () => setRoute(window.location.hash.slice(1) || "home");
+    const onHash = () =>
+      setRoute(window.location.hash.slice(1) || "home");
     window.addEventListener("hashchange", onHash);
     return () => window.removeEventListener("hashchange", onHash);
   }, []);
@@ -29,32 +49,20 @@ export default function App() {
     window.scrollTo({ top: 0 });
   };
 
-  const active = PAGES.includes(route) ? route : "home";
+  const active = PAGE_IDS.includes(route) ? route : "home";
+  const meta = PAGE_META[active];
+  const gpa = { gpa: 0, credits: 0 };
 
   return (
     <div className="app">
-      <nav style={{ display: "flex", gap: 12, padding: 16, borderBottom: "1px solid #eee" }}>
-        {PAGES.map((p) => (
-          <button
-            key={p}
-            onClick={() => go(p)}
-            style={{
-              padding: "6px 12px",
-              border: "1px solid #ddd",
-              borderRadius: 999,
-              background: active === p ? "#222" : "transparent",
-              color: active === p ? "#fff" : "#333",
-              cursor: "pointer",
-              textTransform: "capitalize",
-            }}
-          >
-            {p}
-          </button>
-        ))}
-      </nav>
-      <main>
-        <Placeholder name={active.charAt(0).toUpperCase() + active.slice(1)} />
+      <Sidebar route={active} setRoute={go} gpa={gpa} />
+      <main className="main">
+        <MobileTop gpa={gpa} />
+        <div className="main-inner">
+          <PlaceholderPage key={active} kicker={meta.kicker} title={meta.title} />
+        </div>
       </main>
+      <TabBar route={active} setRoute={go} />
     </div>
   );
 }
