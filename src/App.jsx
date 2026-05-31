@@ -7,6 +7,7 @@ import Empty from "./components/Empty.jsx";
 import { PAGE_IDS } from "./components/nav.js";
 import { useStore } from "./data/store.js";
 import { computeGPA } from "./data/gpa.js";
+import Home from "./pages/Home.jsx";
 
 const PAGE_META = {
   home: { kicker: "Dashboard", title: "Home" },
@@ -56,13 +57,22 @@ export default function App() {
   const meta = PAGE_META[active];
   const gpa = computeGPA(store.data.courses);
 
+  const renderPage = () => {
+    switch (active) {
+      case "home":
+        return <Home store={store} setRoute={go} />;
+      default:
+        return <PlaceholderPage kicker={meta.kicker} title={meta.title} />;
+    }
+  };
+
   return (
     <div className="app">
       <Sidebar route={active} setRoute={go} gpa={gpa} />
       <main className="main">
         <MobileTop gpa={gpa} />
         <div className="main-inner">
-          <PlaceholderPage key={active} kicker={meta.kicker} title={meta.title} />
+          <div key={active}>{renderPage()}</div>
         </div>
       </main>
       <TabBar route={active} setRoute={go} />
