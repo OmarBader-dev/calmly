@@ -99,8 +99,18 @@ npm run preview     # serves the production build locally
 
 ## Deployment
 
-The app is a static site after `npm run build`, so it works on any static
-host. Recommended targets: **GitHub Pages**, **Vercel**, or **Netlify**.
+The app is a static site after `npm run build`, so it works on any static host.
+
+**Live site:** https://omarbader-dev.github.io/calmly/
+
+This repository deploys to **GitHub Pages** automatically via GitHub Actions
+([`.github/workflows/deploy.yml`](.github/workflows/deploy.yml)): every push to
+`main` builds the project and publishes `dist/`. The Vite `base` is set to `"./"`
+so assets resolve correctly under the `/calmly/` project path, and the app uses
+hash-based routing so deep links work without server configuration.
+
+To enable it on a fresh fork: open **Settings → Pages**, set **Source** to
+**GitHub Actions**, then push to `main`.
 
 ## Screenshots
 
