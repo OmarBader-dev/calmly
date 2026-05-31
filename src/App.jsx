@@ -9,6 +9,7 @@ import { useStore } from "./data/store.js";
 import { computeGPA } from "./data/gpa.js";
 import Home from "./pages/Home.jsx";
 import Courses from "./pages/Courses.jsx";
+import Calculator from "./pages/Calculator.jsx";
 
 const PAGE_META = {
   home: { kicker: "Dashboard", title: "Home" },
@@ -64,6 +65,8 @@ export default function App() {
         return <Home store={store} setRoute={go} />;
       case "courses":
         return <Courses store={store} />;
+      case "calculator":
+        return <Calculator store={store} />;
       default:
         return <PlaceholderPage kicker={meta.kicker} title={meta.title} />;
     }
