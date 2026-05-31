@@ -114,16 +114,29 @@ To enable it on a fresh fork: open **Settings → Pages**, set **Source** to
 
 ## Screenshots
 
-> _Screenshots will be added once all functionality stages are merged._
+### Home — dashboard
+![Home dashboard](screenshots/home.png)
 
-| Page       | Preview |
-| ---------- | ------- |
-| Home       | _coming soon_ |
-| Courses    | _coming soon_ |
-| Calculator | _coming soon_ |
-| Calendar   | _coming soon_ |
-| Skill Swap | _coming soon_ |
-| About      | _coming soon_ |
+### Courses — manage credits & grades
+![Courses page](screenshots/courses.png)
+
+### GPA Calculator — live GPA, target planner & weighted assessments
+![GPA Calculator](screenshots/calculator.png)
+
+### Calendar — exams & assignments
+![Calendar](screenshots/calendar.png)
+
+### Skill Swap — campus exchange board
+![Skill Swap board](screenshots/swap.png)
+
+### About & Help — guide, grade scale & appearance
+![About & Help](screenshots/about.png)
+
+### Responsive (mobile)
+
+| Home | Calendar |
+| ---- | -------- |
+| ![Home on mobile](screenshots/home-mobile.png) | ![Calendar on mobile](screenshots/calendar-mobile.png) |
 
 ## Academic Integrity
 
