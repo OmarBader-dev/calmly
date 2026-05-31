@@ -8,6 +8,7 @@ import { PAGE_IDS } from "./components/nav.js";
 import { useStore } from "./data/store.js";
 import { computeGPA } from "./data/gpa.js";
 import Home from "./pages/Home.jsx";
+import Courses from "./pages/Courses.jsx";
 
 const PAGE_META = {
   home: { kicker: "Dashboard", title: "Home" },
@@ -61,6 +62,8 @@ export default function App() {
     switch (active) {
       case "home":
         return <Home store={store} setRoute={go} />;
+      case "courses":
+        return <Courses store={store} />;
       default:
         return <PlaceholderPage kicker={meta.kicker} title={meta.title} />;
     }
