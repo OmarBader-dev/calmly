@@ -7,8 +7,8 @@ export default function Brand() {
         <Icon name="leaf" />
       </div>
       <div>
-        <div className="brand-name">Quietly</div>
-        <div className="brand-sub">study, calmly</div>
+        <div className="brand-name">Calmly</div>
+        <div className="brand-sub">study, quietly</div>
       </div>
     </div>
   );

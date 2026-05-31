@@ -1,9 +1,9 @@
 {
-  "name": "quietly",
+  "name": "calmly",
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "description": "Quietly — a calm student study planner & GPA calculator (CSCI390 Project Phase 2).",
+  "description": "Calmly — a calm student study planner & GPA calculator (CSCI390 Project Phase 2).",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

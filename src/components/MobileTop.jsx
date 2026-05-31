@@ -8,7 +8,7 @@ export default function MobileTop({ gpa }) {
           <Icon name="leaf" />
         </div>
         <span className="brand-name" style={{ fontSize: 17 }}>
-          Quietly
+          Calmly
         </span>
       </div>
       <div className="gpa-chip" style={{ padding: 0 }}>

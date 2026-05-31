@@ -50,7 +50,7 @@ export default function About({ store, theme, serif, setTheme, setSerif }) {
       <PageHead
         kicker="The basics"
         title="About & Help"
-        desc="Quietly is a calm home for the few things that actually move your term forward — your courses, your GPA, your deadlines, and the people who can help."
+        desc="Calmly is a calm home for the few things that actually move your term forward — your courses, your GPA, your deadlines, and the people who can help."
       />
 
       <div className="grid" style={{ gridTemplateColumns: "1.3fr 1fr", gap: 18, alignItems: "start" }}>
@@ -156,7 +156,7 @@ export default function About({ store, theme, serif, setTheme, setSerif }) {
         </div>
         <div>
           <div style={{ fontSize: 14, fontWeight: 600, color: "var(--ink)" }}>
-            Quietly — built by Omar Bader
+            Calmly — built by Omar Bader
           </div>
           <div style={{ fontSize: 12.5, color: "var(--ink-faint)" }}>
             CSCI390: Web Programming · Project Phase 2 · React + Vite

@@ -1,4 +1,4 @@
-# Quietly — A Calm Study Planner
+# Calmly — A Calm Study Planner
 
 A minimalist, zen-focused study companion for university students. Track your
 courses, watch your GPA update live, plan deadlines on a clean calendar, and
@@ -11,7 +11,7 @@ swap skills with classmates — all in one quiet place.
 
 ## Project Description
 
-Quietly is a single-page React application that helps undergraduates stay on
+Calmly is a single-page React application that helps undergraduates stay on
 top of a term without the visual noise of typical student dashboards. It
 combines four useful tools into one calm interface:
 

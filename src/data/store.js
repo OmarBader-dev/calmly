@@ -49,7 +49,7 @@ export function seed() {
   };
 }
 
-const KEY = "quietly.v1";
+const KEY = "calmly.v1";
 
 function load() {
   try {

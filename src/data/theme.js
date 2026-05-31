@@ -3,7 +3,7 @@
    ============================================================ */
 import { useState, useEffect } from "react";
 
-const KEY = "quietly.theme";
+const KEY = "calmly.theme";
 
 export const THEME_META = [
   { id: "warm", label: "Warm", bg: "oklch(0.985 0.006 85)", accent: "oklch(0.60 0.062 155)" },
