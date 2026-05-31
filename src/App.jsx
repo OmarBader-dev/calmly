@@ -5,6 +5,8 @@ import MobileTop from "./components/MobileTop.jsx";
 import PageHead from "./components/PageHead.jsx";
 import Empty from "./components/Empty.jsx";
 import { PAGE_IDS } from "./components/nav.js";
+import { useStore } from "./data/store.js";
+import { computeGPA } from "./data/gpa.js";
 
 const PAGE_META = {
   home: { kicker: "Dashboard", title: "Home" },
@@ -32,6 +34,7 @@ function PlaceholderPage({ kicker, title }) {
 }
 
 export default function App() {
+  const store = useStore();
   const [route, setRoute] = useState(
     () => window.location.hash.slice(1) || "home"
   );
@@ -51,7 +54,7 @@ export default function App() {
 
   const active = PAGE_IDS.includes(route) ? route : "home";
   const meta = PAGE_META[active];
-  const gpa = { gpa: 0, credits: 0 };
+  const gpa = computeGPA(store.data.courses);
 
   return (
     <div className="app">
