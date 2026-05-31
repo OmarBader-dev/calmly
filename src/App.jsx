@@ -11,6 +11,7 @@ import Home from "./pages/Home.jsx";
 import Courses from "./pages/Courses.jsx";
 import Calculator from "./pages/Calculator.jsx";
 import Calendar from "./pages/Calendar.jsx";
+import Swap from "./pages/Swap.jsx";
 
 const PAGE_META = {
   home: { kicker: "Dashboard", title: "Home" },
@@ -70,6 +71,8 @@ export default function App() {
         return <Calculator store={store} />;
       case "calendar":
         return <Calendar store={store} />;
+      case "swap":
+        return <Swap store={store} />;
       default:
         return <PlaceholderPage kicker={meta.kicker} title={meta.title} />;
     }
