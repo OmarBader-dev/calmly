@@ -2,8 +2,6 @@ import { useEffect, useState } from "react";
 import Sidebar from "./components/Sidebar.jsx";
 import TabBar from "./components/TabBar.jsx";
 import MobileTop from "./components/MobileTop.jsx";
-import PageHead from "./components/PageHead.jsx";
-import Empty from "./components/Empty.jsx";
 import { PAGE_IDS } from "./components/nav.js";
 import { useStore } from "./data/store.js";
 import { computeGPA } from "./data/gpa.js";
@@ -12,31 +10,7 @@ import Courses from "./pages/Courses.jsx";
 import Calculator from "./pages/Calculator.jsx";
 import Calendar from "./pages/Calendar.jsx";
 import Swap from "./pages/Swap.jsx";
-
-const PAGE_META = {
-  home: { kicker: "Dashboard", title: "Home" },
-  courses: { kicker: "Your term", title: "Courses" },
-  calculator: { kicker: "The numbers", title: "GPA Calculator" },
-  calendar: { kicker: "Stay ahead", title: "Calendar" },
-  swap: { kicker: "Campus exchange", title: "Skill Swap" },
-  about: { kicker: "The basics", title: "About & Help" },
-};
-
-function PlaceholderPage({ kicker, title }) {
-  return (
-    <div className="fade-in">
-      <PageHead
-        kicker={kicker}
-        title={title}
-        desc="This page is being built"
-      />
-      <Empty
-        icon="leaf"
-        title="in the making"
-      />
-    </div>
-  );
-}
+import About from "./pages/About.jsx";
 
 export default function App() {
   const store = useStore();
@@ -58,7 +32,6 @@ export default function App() {
   };
 
   const active = PAGE_IDS.includes(route) ? route : "home";
-  const meta = PAGE_META[active];
   const gpa = computeGPA(store.data.courses);
 
   const renderPage = () => {
@@ -73,8 +46,10 @@ export default function App() {
         return <Calendar store={store} />;
       case "swap":
         return <Swap store={store} />;
+      case "about":
+        return <About store={store} />;
       default:
-        return <PlaceholderPage kicker={meta.kicker} title={meta.title} />;
+        return <Home store={store} setRoute={go} />;
     }
   };
 
